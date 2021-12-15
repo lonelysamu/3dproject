@@ -43,7 +43,7 @@
     border: 2px solid black;
 
     perspective:100vw;
-    perspective-origin: 150% 150%;
+
     transform-style: preserve-3d;
 }
 
@@ -56,18 +56,44 @@
     justify-content: end;
     text-align: end;
     transition: 0.5s;
+    backface-visibility: hidden;
 
     border: 1px solid black;
 
 }
 
+.anchor{
+    position: relative;
+}
+
+.levy{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0;
+}
+
+.sidenavbar{
+    width: 20vh;
+}
+
+.navitem{
+    cursor: pointer;
+}
+
 .extender{
+    backface-visibility: hidden;
 
 }
 
 .extender:hover{
-    background-color: rgba(207, 204, 204, 0.349);
+    background-color: white;
     transform: translateZ(30px);
+  
+}
+
+.extenderout{
+    
 }
 
 .mid{
@@ -101,8 +127,22 @@
     animation: 4s ease-in-out 0s infinite forwards front;
 }
 
+.permarotate2panel2{
+    animation: 1s ease-in-out 0s 1 forwards rotatepanelright;
+}
+.permarotate2panel3{
+    animation: 1s ease-in-out 0s 1 forwards rotatepanelleft;
+}
+.permarotate2panel4{
+    animation: 1s ease-in-out 0s 1 forwards rotatepanelback;
+}
+.permarotate2panel1{
+    animation: 1s ease-in-out 0s 1 forwards reset;
+}
+
 .permarotate:hover{
     animation-play-state: paused;
+
 }
 
 @keyframes front {
@@ -111,6 +151,17 @@
     50% {transform: rotate3d(0, 1, 0, 180deg);}
     75% {transform: rotate3d(0, 1, 0, 270deg);}
     100% {transform: rotate3d(0, 1, 0, 360deg);}
-    
-    
-  }
+}
+
+@keyframes rotatepanelright {
+    100% {transform: rotate3d(1, 0, 1, 180deg) rotateZ(180deg) ;}
+}
+@keyframes rotatepanelleft {
+    100% {transform: rotate3d(1, 0, 1, 180deg) rotateX(180deg);}
+}
+@keyframes rotatepanelback {
+    100% {transform: rotate3d(1, 1, 0, 180deg) rotateZ(270deg);}
+}
+@keyframes reset {
+    100% {transform: rotate3d(1, 0, 0, 360deg);}
+}
