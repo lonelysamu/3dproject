@@ -6,6 +6,7 @@ if(e.target.classList.contains("navitem") == true){
     y = Array.from(document.querySelector('#navbar').getElementsByClassName('navitem')).indexOf(e.target);
     document.getElementById("animationtarget").classList.add(navanimation[y])
 }
+else if(e.target.classList.contains("squarebox") == true || e.target.classList.contains("innerbox") == true){}
 else{
     removeall() 
 }
